@@ -93,7 +93,7 @@ sudo vim /etc/shells
 /opt/homebrew/bin/bash
 ```
 
-## Change the default shell to bash
+### Change the default shell to bash
 
 ```bash
 #if using macOS's default bash:

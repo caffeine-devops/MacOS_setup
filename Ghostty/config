@@ -1,0 +1,58 @@
+# This is the configuration file for Ghostty.
+#   /Users/sahilali/Library/Application Support/com.mitchellh.ghostty/config
+
+# ghostty +show-config --default --docs
+# ghostty +list-themes
+
+# Appearance
+#theme will be picked up from ./themes folder
+theme = catppuccin-mocha 
+
+font-family = "FiraCode Nerd Font"
+font-thicken = true
+window-title-font-family = "FiraCode Nerd Font Mono"
+
+adjust-underline-position = 3
+adjust-underline-thickness = 60%
+
+# Cursor
+cursor-style = block
+cursor-style-blink = true
+cursor-invert-fg-bg = true
+cursor-opacity = 0.75
+adjust-cursor-thickness = 3
+
+# Shell. REMOVE IF YOU ARE USING ANYTHING OTHER THAN BASH 
+shell-integration = bash
+shell-integration-features = cursor, sudo, title
+
+# Background
+background-opacity = 0.75
+background-blur = true
+
+# Behavior
+bold-is-bright = true
+link-url = true
+mouse-hide-while-typing = true
+clipboard-trim-trailing-spaces = true
+copy-on-select = true
+
+# Window
+#window-decoration = none
+#COMMENT THIS IF USING SOMETHING OTHER THAN MAC
+macos-titlebar-style = hidden 
+
+# Key bindings
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+
+keybind = ctrl+shift+h=new_split:left
+keybind = ctrl+shift+j=new_split:down
+keybind = ctrl+shift+k=new_split:up
+keybind = ctrl+shift+l=new_split:right
+
+keybind = super+shift+enter=new_split:auto
+keybind = super+shift+i=inspector:toggle
+
