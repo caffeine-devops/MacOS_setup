@@ -98,7 +98,7 @@ sudo vim /etc/shells
 /opt/homebrew/bin/bash
 ```
 
-> [!important] Note
+> [!important]
 > Do not delete the /bin.bash entry from /etc/shells if it exists already. Just add the new entry
 
 ### Change the default shell to bash
