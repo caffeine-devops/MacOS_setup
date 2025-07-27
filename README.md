@@ -83,6 +83,11 @@ ls /bin/ | grep bash
 If you see bash as the output, then congratulations! you have bash pre-installed.
 Don't worry if the above command didn't give you any output. just follow the below steps...
 
+> [!warning]
+> The bash version installed by default on macOS as of mid-2025 is quite old (3.2.57)
+> Homebrew is shipping with 5.3.X
+> I suggest you still follow the steps for if you were installing bash from brew even if you have bash preinstalled
+
 ```bash
 brew install bash
 
@@ -92,6 +97,9 @@ sudo vim /etc/shells
 #add the below line to the list
 /opt/homebrew/bin/bash
 ```
+
+> [!important] Note
+> Do not delete the /bin.bash entry from /etc/shells if it exists already. Just add the new entry
 
 ### Change the default shell to bash
 
