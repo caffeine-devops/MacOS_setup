@@ -189,3 +189,88 @@ I use config inspired from [kickstart.nvim](https://github.com/nvim-lua/kickstar
 I encourage you refer it's documentation for installation and setup.
 
 ***I am going to add my nvim config in NeoVim Directory in this repo***
+
+
+## Yazi
+
+[Official doc page](https://yazi-rs.github.io/docs/installation/)
+
+Yazi is a terminal based file manager. This is the setup for my Yazi config. I will be updating this as time goes. You can find my Yazi config in **Yazi** Directory
+
+### Install Yazi
+
+To install yazi and all it's dependencies, run 
+
+```bash
+brew install yazi ffmpeg sevenzip jq poppler fd ripgrep fzf zoxide resvg imagemagick font-symbols-only-nerd-font
+```
+
+Once you have installed it, you can start using it by running
+
+```bash
+yazi
+# Press `q` to quit, `F1` or `~` to open help menu
+```
+
+#### Shell Wrapper
+
+It is suggested to use the below `y` shell wrapper that provides the ability to chnage the current working directory when exiting yazi.
+
+add below function to `.bashrc` file and source it.
+
+```bash
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+```
+
+- Restart the terminal after this.
+- Now you can use it by `y` instead of `yazi`. 
+- `q` to quit -> you'll see CWD changed to the one you were in yazi
+- `Q` to quit without CWD change
+
+### Yazi config
+
+There are 3 config files for yazi
+
+- `yazi.toml` for general config
+- `keymap.toml` for Keybindings config
+- `theme.toml` for color scheme config.
+
+Create these by running
+
+```bash
+mkdir -p ~/.config/yazi
+touch yazi.toml keymap.toml theme.toml
+```
+
+Here is the [Default config files](https://github.com/sxyazi/yazi/tree/shipped/yazi-config/preset)
+
+I have copied the file content from here and did some changes that I want. I will continue to add changes as I continue using it.
+
+#### Yazi theme config
+
+To use custom theme like the one I am using, you can refer [this page](https://github.com/yazi-rs/flavors/tree/main)
+
+I am using [catppuccin-mocha](https://github.com/yazi-rs/flavors/tree/main/catppuccin-mocha.yazi) theme.
+
+run below commands to start using the theme
+
+```bash
+mkdir ~/.config/yazi/flavors/
+
+# Install the theme
+ya pkg add yazi-rs/flavors:catppuccin-mocha
+```
+
+make sure this is the content of your `theme.toml` file
+
+```toml
+[flavor]
+dark = "catppuccin-mocha"
+light = "catppuccin-mocha"
+```

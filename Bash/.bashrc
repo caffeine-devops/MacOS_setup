@@ -108,3 +108,11 @@ source /opt/homebrew/opt/fzf/shell/key-bindings.bash
 alias sbrc='source ~/.bashrc'
 alias ebrc='nvim ~/.bashrc'
 
+# yazi y shell weapper
+function y() {
+        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        yazi "$@" --cwd-file="$tmp"
+        IFS= read -r -d '' cwd < "$tmp"
+        [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+        rm -f -- "$tmp"
+}
